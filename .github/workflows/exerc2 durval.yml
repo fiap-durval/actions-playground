@@ -1,0 +1,19 @@
+name: "exerc2 durval"
+
+on: [push]
+  
+jobs:
+  cria_e_upload_artefato:
+    name: "Cria artefato e faz upload"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3.3.0
+
+      - name: Upoad a Buld Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: ${{vars.ARQUIVO}}
+          path: .
+          retention-days: 15
