@@ -1,0 +1,42 @@
+name: "exerc1 durval"
+
+on:
+  push:
+  
+jobs:
+  print_date_ubunt:
+    name: print date Ubuntu!
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print date ubuntu!
+      run: date
+
+  print_date_windowns:
+    name: print date windowns! 
+    runs-on: windows-latest
+
+    steps:
+    - name: print date windown!
+      run: date
+
+  print_date_macos:
+    name: print date macos! 
+    runs-on: macos-latest
+
+    steps:
+    - name: print date macos!
+      run: date  
+
+  print_date_final:
+    name: print date final!
+    runs-on: ubuntu-latest
+    needs:
+      - print_date_ubunt
+      - print_date_windowns
+      - print_date_macos
+
+    steps:
+    - name: print date ubuntu!
+      run: date
+      
